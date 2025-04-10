@@ -1,12 +1,14 @@
 import { useState } from 'react'
 
-const [username, setUsername] = useState("");
-const [password, setPassword] = useState("");
-const [error, setError] = useState(null);
-const maxCharacters = 8;
 
 function SignUpForm ({setToken}) {
     
+    const [username, setUsername] = useState("");
+    const [password, setPassword] = useState("");
+    const [error, setError] = useState(null);
+    const maxCharacters = 8;
+
+
 async function handleSubmit(event) {
     event.preventDefault();
     try {
@@ -37,10 +39,11 @@ return(
         {error && <p>{error}</p>}
         <form onSubmit={handleSubmit}>
             <label>
-                <input value={username} onChange={(e) => setUsername(e.target.value)} maxLength={8} > Username: </input>
+                <input value={username} onChange={(e) => setUsername(e.target.value)} placeholder="Enter username here" maxLength={8} />
             </label>
             <label>
-                <input value={password} onChange={(e) => setPassword(e.target.value)} > Password: </input>
+                <p>Password: </p>
+                <input value={password} onChange={(e) => setPassword(e.target.value)} />
             </label>
             <button>Submit!</button>
         </form>
