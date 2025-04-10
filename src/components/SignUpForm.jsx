@@ -3,6 +3,7 @@ import { useState } from 'react'
 const [username, setUsername] = useState("");
 const [password, setPassword] = useState("");
 const [error, setError] = useState(null);
+const maxCharacters = 8;
 
 function SignUpForm ({setToken}) {
     
@@ -36,10 +37,10 @@ return(
         {error && <p>{error}</p>}
         <form onSubmit={handleSubmit}>
             <label>
-                <input value={username} onChange={(e) => setUsername(e.target.value)} >Username: </input>
+                <input value={username} onChange={(e) => setUsername(e.target.value)} maxLength={8} > Username: </input>
             </label>
             <label>
-                <input value={password} onChange={(e) => setPassword(e.target.value)} >Password: </input>
+                <input value={password} onChange={(e) => setPassword(e.target.value)} > Password: </input>
             </label>
             <button>Submit!</button>
         </form>
